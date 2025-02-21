@@ -1,0 +1,4 @@
+Esfero DAX azul,2,3,4.00
+005,Regla 30 cm,10,0.50
+007,Tijera punta roma,48,0.50
+007,Regla 30cm,90,0.50
