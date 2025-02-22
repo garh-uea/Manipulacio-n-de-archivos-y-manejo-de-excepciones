@@ -92,20 +92,20 @@ class Inventario:
     def guardar_inventario(self):
         # Implementación y manejo de excepciones ante posibles errores durante la manipulación de archivos
         try:
-            with open("inventario.txt", "w", encoding='utf-8') as f:
+            with open("inventario.txt", "w", encoding='utf-8') as file:
                 for articulo in self.articulos:
-                    f.write(f"{articulo.id_unico()},{articulo.descripcion_articulo()},{articulo.cantidad_articulo()},{articulo.precio_articulo():.2f}\n")
+                    file.write(f"{articulo.id_unico()},{articulo.descripcion_articulo()},{articulo.cantidad_articulo()},{articulo.precio_articulo():.2f}\n")
             print("Inventario guardado o actualizado exitosamente.")
-        except IOError as e:
-            print(f"Error al guardar el inventario: {e}")
+        except IOError as error:
+            print(f"Error al guardar el inventario: {error}")
 
     # Método para cargar el inventario desde un archivo
     def cargar_inventario(self):
         # Implementación y manejo de excepciones ante posibles errores durante la manipulación de archivos
         try:
             if os.path.exists("inventario.txt"):
-                with open("inventario.txt", "r", encoding='utf-8') as f:
-                    for line in f:
+                with open("inventario.txt", "r", encoding='utf-8') as file:
+                    for line in file:
                         data = line.strip().split(',')
                         if len(data) == 4:
                             id_unico, nombre, cantidad, precio = data
@@ -113,17 +113,17 @@ class Inventario:
                 print("Inventario cargado exitosamente.")
             else:
                 print("El archivo de inventario no existe. Se iniciará con un inventario vacío.")
-        except IOError as e:
-            print(f"Error al cargar el inventario: {e}")
+        except IOError as error:
+            print(f"Error al cargar el inventario: {error}")
 
     # Método para guardar artículos eliminados
     def guardar_articulo_eliminado(self, articulo):
         # Implementación y manejo de excepciones ante posibles errores durante la manipulación de archivos
         try:
-            with open("productos_fuera_de_stock.txt", "a", encoding='utf-8') as f:
-                f.write(f"{articulo.id_unico()},{articulo.descripcion_articulo()},{articulo.cantidad_articulo()},{articulo.precio_articulo():.2f}\n")
-        except IOError as e:
-            print(f"Error al guardar el artículo eliminado: {e}")
+            with open("productos_fuera_de_stock.txt", "a", encoding='utf-8') as file:
+                file.write(f"{articulo.id_unico()},{articulo.descripcion_articulo()},{articulo.cantidad_articulo()},{articulo.precio_articulo():.2f}\n")
+        except IOError as error:
+            print(f"Error al guardar el artículo eliminado: {error}")
 
 # Función para convertir una cadena a float, cuando el usuario digita coma (,) en vez de punto (.)
 def convertir_a_float(valor):
@@ -152,9 +152,9 @@ def mostrar_articulos_eliminados():
     # Implementación y manejo de excepciones ante posibles errores durante la manipulación de archivos
     try:
         if os.path.exists("productos_fuera_de_stock.txt"):
-            with open("productos_fuera_de_stock.txt", "r", encoding='utf-8') as f:
+            with open("productos_fuera_de_stock.txt", "r", encoding='utf-8') as file:
                 articulos = []
-                for line in f:
+                for line in file:
                     data = line.strip().split(',')
                     if len(data) == 4:
                         id_unico, nombre, cantidad, precio = data
@@ -166,8 +166,8 @@ def mostrar_articulos_eliminados():
                     print("No hay artículos eliminados registrados.")
         else:
             print("No se ha encontrado el archivo de artículos eliminados.")
-    except IOError as e:
-        print(f"Error al leer el archivo de artículos eliminados: {e}")
+    except IOError as error:
+        print(f"Error al leer el archivo de artículos eliminados: {error}")
 
 # Función principal del programa
 def main():
