@@ -3,3 +3,4 @@ Esfero DAX azul,2,3,4.00
 007,Tijera punta roma,48,0.50
 007,Regla 30cm,90,0.50
 009,Tempera Mi Nota 6 colores,32,1.50
+011,Resaltador color naranja,25,0.50

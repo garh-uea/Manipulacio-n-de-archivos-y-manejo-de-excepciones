@@ -6,3 +6,4 @@
 006,Pintura Norma 15 colores,32,5.25
 008,Pincel # 12,58,1.00
 010,Fomix A4 escarchado verde,120,0.20
+012,Cuaderno cosido 1 linea 100 hojas,68,1.45

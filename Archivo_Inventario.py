@@ -105,8 +105,8 @@ class Inventario:
         try:
             if os.path.exists("inventario.txt"):
                 with open("inventario.txt", "r", encoding='utf-8') as file:
-                    for line in file:
-                        data = line.strip().split(',')
+                    for linea in file:
+                        data = linea.strip().split(',')
                         if len(data) == 4:
                             id_unico, nombre, cantidad, precio = data
                             self.articulos.append(Mercaderia(id_unico, nombre, int(cantidad), float(precio)))
@@ -154,8 +154,8 @@ def mostrar_articulos_eliminados():
         if os.path.exists("productos_fuera_de_stock.txt"):
             with open("productos_fuera_de_stock.txt", "r", encoding='utf-8') as file:
                 articulos = []
-                for line in file:
-                    data = line.strip().split(',')
+                for linea in file:
+                    data = linea.strip().split(',')
                     if len(data) == 4:
                         id_unico, nombre, cantidad, precio = data
                         articulos.append(Mercaderia(id_unico, nombre, int(cantidad), float(precio)))
